@@ -1,0 +1,18 @@
+[general]
+name=Q積表｜土地家屋調査士のための求積表出力プラグイン
+description=土地家屋調査士向けに求積表を生成し、印刷レイアウトへラベルとして配置できるプラグイン
+version=20261023
+qgisMinimumVersion=4.0
+qgisMaximumVersion=4.99
+author=Sanda Takeru
+email=
+about=Q積表は地積計算実務向けに求積表をQGIS上で作成するプラグインです。式関数 kyuseki_html() で求積表HTMLを生成し、印刷レイアウトへのラベル配置・更新を支援します。地番絞り込み（単一値/カンマ区切り/配列/式/@atlas_featureid）、地番フィールド名の揺れ吸収（フィールド名・エイリアス対応）、点名照合、境界標表示に対応しています。full_precision=true では座標・(Xn+1-Xn-1)Yn・倍面積・面積をフル桁表示し、full_precision=false では coord_digits を基準に桁表示します（(Xn+1-Xn-1)Yn/倍面積=2*coord_digits、面積=2*coord_digits+1）。地積は full_precision に関係なく area_digits 桁で常に切り捨て表示し、show_tsubo=true で地積（切り捨て済み）を坪換算した値を追加表示できます。印刷レイアウト連携では HTML レンダリング有効化・ページ内中央配置・初期フォント（BIZ UDGothic優先、5pt）を自動適用します。
+tracker=
+repository=
+homepage=
+tags=cadastre,survey,layout,label,expression,report
+category=Vector
+icon=icon.svg
+experimental=False
+deprecated=False
+changelog=20261023: プラグイン名を「Q積表｜土地家屋調査士のための求積表出力プラグイン」へ変更。印刷レイアウトUIの名称・README・式関数グループ名を新名称に合わせて整合化。\n0.3.5: kyuseki_html() の引数10以降の順序を見直し（column_count, show_total_table, show_tsubo, start, tolerance）へ変更。式生成ダイアログUIの項目順と式プレビュー生成順を同順へ統一。関数説明（Syntax/Arguments/Examples）と README の使用例を更新。\n0.3.4: 印刷レイアウト専用UIへ整理（Plugins メニューへの追加を廃止）。レイアウトメニューからのダイアログ起動を安定化。式コピーとラベル追加の動作を改善し、クリップボード更新を確実化。追加ラベルは HTML レンダリングを自動有効化し、現在表示中心かつページ設定サイズ内へ自動配置。初期フォントを BIZ UDGothic 優先・5pt に設定。HTML 側の固定フォント指定を撤廃し、ラベルプロパティのフォント変更が反映されるよう調整。\n0.3.3: 引数既定値の齟齬を修正（build_kyuseki_expression の show_total_table 既定を false に統一）。点名レイヤ未指定時の省略運用を改善。式生成ダイアログでポイントレイヤ選択時に境界標属性候補も同期。レイアウト自動更新の対象を HTML 項目に加えて kyuseki_html() を含むラベル項目にも拡張。\n0.3.2: show_tsubo 引数を追加。地積（切り捨て済み）を坪換算して「地積（坪）」として地積行の直下へ表示可能にした。集計値（倍面積/面積/地積/坪）の値セルの開始位置を揃える表示調整を実施。\n0.3.1: 合計表示を表スタイルへ統一。合計表を「合計 / 面積の合計（full_precision=true では（フル桁）付き） / 地積の合計」に整理。穴開きポリゴン（外郭-穴）で、倍面積・面積・地積を各パート行の倍面積合算基準で算出するよう修正。\n0.3.0: kyuseki_usage() を廃止。フィルタ判定ロジックを共通化して保守性を改善。full_precision 時の表示ルールを明確化。列名を (Xn+1-Xn-1)Yn に統一。show_total_table 引数を追加。README/関数説明/メタデータを更新。
